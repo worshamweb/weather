@@ -16,8 +16,8 @@
   * Bundler
 
 * Clone:
-  * git clone https://...
-  * cd repo_name
+  * git clone https://github.com/worshamweb/weather.git
+  * cd wetaher
   * bundle install
   * rails db:prepare
   * rails s
