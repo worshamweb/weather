@@ -17,7 +17,7 @@
 
 * Clone:
   * git clone https://github.com/worshamweb/weather.git
-  * cd wetaher
+  * cd weather
   * bundle install
   * rails db:prepare
   * rails s
