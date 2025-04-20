@@ -1,0 +1,7 @@
+<div class="row align-items-center justify-content-center alert alert-danger d-none" id="gmpx-no-match-error" role="alert">
+  <% if @zipcode_missing %>
+    Zipcode missing or invalid.  Please Re-Enter Address, City or Zip Code for Weather Forecast
+  <% else %>
+    Can not find a Zip Code for that selection. Please enter a different address, city or zip code.
+  <% end %>
+</div>

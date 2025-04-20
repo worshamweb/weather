@@ -1,0 +1,24 @@
+<ul class="seven-day-forecast">
+  <% @daily_forecasts.each_with_index do |daily_forecast| %>
+    <li class="days">
+      <ul class="day">
+        <li class="day-name">
+          <%= day_of_week(daily_forecast["date"]) %>
+        </li>
+        <li class="icon">
+          <img src="<%= daily_forecast["day"]["condition"]["icon"] %>">
+        </li>
+        <li class="high-temp">
+          High:
+            <span class="temp-preference imperial"><%= daily_forecast["day"]["maxtemp_f"] %>&deg</span>
+            <span class="temp-preference metric"><%= daily_forecast["day"]["maxtemp_c"] %>&deg</span>
+        </li>
+        <li class="low-temp">
+          Low:
+            <span class="temp-preference imperial"><%= daily_forecast["day"]["mintemp_f"] %>&deg</span>
+            <span class="temp-preference metric"><%= daily_forecast["day"]["mintemp_c"] %>&deg</span>
+        </li>
+      </ul>
+    </li>
+  <% end %>
+</ul>

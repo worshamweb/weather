@@ -1,0 +1,72 @@
+
+<div class="container forecast-container">
+  <div class="row search-row">
+    <div class="col-3">
+      <gmpx-api-loader key="<%= Rails.application.credentials.google_api_key %>" solution-channel="GMP_GE_placepicker_v2"/>
+      <div id="place-picker-box">
+        <div id="place-picker-container">
+          <gmpx-place-picker placeholder="Enter Address, City or Zip Code" id="google-place-picker-input"></gmpx-place-picker>
+        </div>
+      </div>
+    </div>
+    <div class="col-7" id="current-conditions-location">
+      <% if @forecast_data %>
+      <%= render 'current_conditions_location', locals: { zip_code: @forecast_data.zip_code, from_cache: @forecast_data.from_cache } %>
+      <% end %>
+    </div>
+    <div class="col-2 text-end">
+      <div class="dropdown">
+        <button
+          id="dropdownMenuButton"
+          class="btn btn-light dropdown-toggle btn-sm"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">
+            Settings
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <button
+              id="set-preference-imperial"
+              class="dropdown-item temp-settings"
+              type="button"
+              data-action="temp-settings"
+              data-value="imperial">
+                Fahrenheit
+            </button>
+          </li>
+          <li>
+            <button
+              id="set-preference-metric"
+              class="dropdown-item temp-settings"
+              type="button"
+              data-action="temp-settings"
+              data-value="metric">
+                Celsius
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="row current-conditions-row" id="current-conditions-row">
+      <% if @forecast_data %>
+        <%= render 'current_conditions', locals: { forecast_data: @forecast_data } %>
+      <% else %>
+        <div class="row align-items-center justify-content-center" id="welcome-text">
+          Enter Address, City or Zip Code for Weather Forecast
+        </div>
+      <%= render 'loading_indicator' %>
+      <%= render 'zipcode_missing' %>
+      <% end %>
+  </div>
+
+  <div class="row forecast-row" id="forecast-row">
+    <div class="col-12">
+      <% if @daily_forecast %>
+        <%= render 'daily_forecasts' , locals: { daily_forecast: @daily_forecast } %>
+      <% end %>
+    </div>
+  </div>
+</div>

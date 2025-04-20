@@ -1,0 +1,15 @@
+$('#current-conditions-location').html("<%= j render partial: 'current_conditions_location', locals: {zip_code: @forecast_data.zip_code, from_cache: @forecast_data.from_cache } %>")
+$("#current-conditions-row").html("<%= j render partial: 'current_conditions', locals: { forecast_data: @forecast_data } %>");
+$("#forecast-row").html("<%= j render partial: 'daily_forecasts', locals: { daily_forecasts: @daily_forecasts } %>");
+$(document).ready(function(){
+    let temperatureSettings = localStorage.getItem('temperatureSettings');
+    if ([null, undefined, "undefined"].includes(temperatureSettings)) {
+        temperatureSettings = 'imperial';
+        localStorage.setItem('temperatureSettings', temperatureSettings);
+    } ;
+    $('.temp-preference').hide()
+    $(`.${temperatureSettings}`).show()
+
+
+})
+

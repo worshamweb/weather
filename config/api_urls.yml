@@ -1,0 +1,11 @@
+default: &default
+  weather_api: https://api.weatherapi.com/v1/forecast.json
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

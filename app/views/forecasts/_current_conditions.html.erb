@@ -1,0 +1,53 @@
+<%= render 'forecasts/loading_indicator' %>
+<%= render 'forecasts/zipcode_missing' %>
+<div class="col-3 weather-icon">
+  <ul class="weather-icon-info">
+    <li><img id="current-weather-icon" src="https://<%= forecast_data["forecast"]["current"]["condition"]["icon"] %>"></li>
+    <li id="current_condition_text"><%= forecast_data["forecast"]["current"]["condition"]["text"] %></li>
+  </ul>
+</div>
+<div class="col-3 temp">
+  <span class="temp-preference imperial current-temp"><%= forecast_data["forecast"]["current"]["temp_f"] %>&deg</span>
+  <span class="temp-preference metric current-temp"><%= forecast_data["forecast"]["current"]["temp_c"] %>&deg</span>
+</div>
+<div class="col-6 details">
+  <ul class="forecast-data">
+    <li class="border-right">
+      <ul class="current-details">
+        <li class="upper-detail">Feels Like</li>
+        <li class="value temp-preference imperial feels-like"><%= forecast_data["forecast"]["current"]["feelslike_f"] %>&deg</li>
+        <li class="value temp-preference metric feels-like"><%= forecast_data["forecast"]["current"]["feelslike_c"] %>&deg</li>
+        <li class="lower-detail">Visibility</li>
+        <li class="value temp-preference imperial visibility"><%= forecast_data["forecast"]["current"]["vis_miles"] %> miles</li>
+        <li class="value temp-preference metric visibility"><%= forecast_data["forecast"]["current"]["vis_km"] %> km</li>
+      </ul>
+    </li>
+    <li class="border-right">
+      <ul class="current-details">
+        <li class="upper-detail">Humidity</li>
+        <li class="value humidity"><%= forecast_data["forecast"]["current"]["humidity"] %>%</li>
+        <li class="lower-detail">Pressure</li>
+        <li class="value temp-preference imperial pressure"><%= forecast_data["forecast"]["current"]["pressure_in"] %> in</li>
+        <li class="value temp-preference metric pressure"><%= forecast_data["forecast"]["current"]["pressure_mb"] %> mb</li>
+      </ul>
+    </li>
+    <li class="border-left border-right">
+      <ul class="current-details">
+        <li class="upper-detail">UV Index</li>
+        <li id="uv-index" class="value"><%= forecast_data["forecast"]["current"]["uv"] %></li>
+        <li class="lower-detail">Sunrise</li>
+        <li id="sunrise" class="value"><%= forecast_data["forecast"]["forecast"]["forecastday"][0]["astro"]["sunrise"] %></li>
+      </ul>
+    </li>
+    <li class="border-right">
+      <ul class="current-details">
+        <li class="upper-detail">Wind Speed</li>
+        <li class="value temp-preference imperial wind"><%= forecast_data["forecast"]["current"]["wind_dir"] %> <%= forecast_data["forecast"]["current"]["wind_mph"] %> mph</li>
+        <li class="value temp-preference metric wind"><%= forecast_data["forecast"]["current"]["wind_dir"] %> <%= forecast_data["forecast"]["current"]["wind_kph"] %> kmh</li>
+        <li class="lower-detail">Sunset</li>
+        <li id="sunset" class="value"><%= forecast_data["forecast"]["forecast"]["forecastday"][0]["astro"]["sunset"] %></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<div class="text-center d-none" id="loading-spinner">
