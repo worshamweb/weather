@@ -21,6 +21,7 @@
   * bundle install
   * rails db:prepare
   * rails s
+  * http://localhost:3000/forecast/
 
 * Testing
   * This app uses Rspec, Webmock, Capybara Selenium Drivers and Cypress
