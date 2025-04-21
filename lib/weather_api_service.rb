@@ -1,7 +1,5 @@
 require 'errors/weather_api_service_error'
-
 class WeatherApiService
-
   def self.fetch(location)
     weather_api_url = Rails.configuration.api_config[:weather_api]
     params = {
@@ -11,6 +9,8 @@ class WeatherApiService
       aqi: "no",
       alerts: "no"
     }
+
+    # Use Typhoeus with an eye on future performance and scalability
     url = Typhoeus::Request.new(weather_api_url, params: params).url
     response = Typhoeus::Request.get(url)
 
