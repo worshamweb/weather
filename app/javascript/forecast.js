@@ -4,9 +4,7 @@ Uses Google place picker to get zip code  then uses that to search for weather c
 $(document).ready(function () {
   const placePicker = $('gmpx-place-picker');
   placePicker.on("gmpx-placechange", () => {
-    console.log("place change");
     const place = placePicker?.val();
-    console.log('place', place);
     if (place) {
       let postal_code = null;
 
@@ -19,15 +17,12 @@ $(document).ready(function () {
       }
 
       if (postal_code) {
-        console.log('has postal code');
         getWeatherForecast(postal_code);
       } else {
-        console.log('no postal code');
         // unable to find a zip code. show error.
         noMatchError();
       }
     } else {
-      console.log('no postal code');
       // empty submit. show error.
       noMatchError();
     }
