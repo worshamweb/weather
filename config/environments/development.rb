@@ -25,8 +25,8 @@ Rails.application.configure do
     config.action_controller.perform_caching = false
   end
 
-  # Use rails 8 SSD caching.
-  config.cache_store = :solid_cache_store
+  # Use memory cache temporarily to avoid database issues
+  config.cache_store = :memory_store
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
