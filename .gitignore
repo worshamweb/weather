@@ -19,7 +19,6 @@
 !/tmp/cache/.keep
 
 # Credentials
-/config/master.key
 /config/credentials/*.key
 
 # Node modules
