@@ -1,0 +1,45 @@
+# Database files
+*.sqlite3
+*.sqlite3-*
+
+# Log files
+/log/*
+!/log/.keep
+
+# Storage files
+/storage/*
+!/storage/.keep
+
+# Temporary files
+/tmp/*
+!/tmp/.keep
+
+# Cache
+/tmp/cache/*
+!/tmp/cache/.keep
+
+# Credentials
+/config/master.key
+/config/credentials/*.key
+
+# Node modules
+/node_modules
+
+# Yarn
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# Environment variables
+.env
+.env.*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

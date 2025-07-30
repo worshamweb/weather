@@ -20,6 +20,7 @@
   * cd weather
   * bundle install
   * rails db:prepare
+  * rails db:migrate:cache
   * rails s
   * http://localhost:3000/forecast/
 
@@ -28,4 +29,9 @@
   * run `rspec spec` for tests
   * default configuration is selenium headless driver. To change, edit `Capybara.default_driver = :selenium_chrome_headless`
   in `spec/rails_helper.rb`
+
+* Troubleshooting
+  * If you get `ActiveRecord::StatementInvalid (Could not find table 'solid_cache_entries')` error:
+    * Run `rails db:migrate:cache` to set up Solid Cache tables, OR
+    * Temporarily switch to memory cache by changing `config.cache_store = :solid_cache_store` to `config.cache_store = :memory_store` in `config/environments/development.rb`
   
