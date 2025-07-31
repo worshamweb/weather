@@ -2,7 +2,7 @@
 
 * Overview
   * This is a simple app that uses google places autocomplete to take an address entry and queries www.weatherapi.com 
-  to present a 7 day forecast.  Forecast data from the API is cached by US Zip Code for 30 minutes using Rails memory caching. 
+  to present a 7 day forecast.  Forecast data from the API is cached by US Zip Code for 30 minutes using Rails Memory caching. 
   There is a thermometer icon in the "Current Conditions" header section that indicates whether the forecast data is 
   cached or fresh. A full thermometer icon means cached, a low thermometer icon means freshly updated.
 
