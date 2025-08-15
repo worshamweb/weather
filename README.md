@@ -5,6 +5,8 @@
   to present a 7 day forecast.  Forecast data from the API is cached by US Zip Code for 30 minutes using Rails memory caching. 
   There is a thermometer icon in the "Current Conditions" header section that indicates whether the forecast data is 
   cached or fresh. A full thermometer icon means cached, a low thermometer icon means freshly updated.
+  ⚠️ **NOTE: At the time this app was developed, the weather api returned a 7 day forecast. At some point that has changed to support only a 3 day foreast.  Since the purpose of this app was just to experiment with certain rails 8 features, and to tinker with Goolgle Places API, it will not be updated**
+
 
 * Key Features
   * **Google Places Autocomplete**: Smart address/location input with autocomplete suggestions
